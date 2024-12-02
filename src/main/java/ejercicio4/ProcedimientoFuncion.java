@@ -31,12 +31,15 @@ public class ProcedimientoFuncion {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/repaso?allowMultiQueries=true", "root", "practica");
             Statement statement = connection.createStatement();
+
+            // Creamos el procedimiento y la función
             statement.execute(procedimiento);
             statement.execute(funcion);
 
             String callFuncion = "{ ? = call ObtenerTotalOrdenes(?) }";
             String callProcedimiento = "{ call InsertarCliente(?, ?, ?) }";
 
+            // Llamada a la función
             CallableStatement callableStatementFuncion = connection.prepareCall(callFuncion);
             callableStatementFuncion.registerOutParameter(1, Types.DOUBLE);
             callableStatementFuncion.setInt(2, 1);
@@ -45,6 +48,7 @@ public class ProcedimientoFuncion {
             double total = callableStatementFuncion.getDouble(1);
             System.out.println("Función : " + total);
 
+            // Llamada al procedimiento
             CallableStatement callableStatementProcedimiento = connection.prepareCall(callProcedimiento);
             callableStatementProcedimiento.setString(1, "José Manuel");
             callableStatementProcedimiento.setString(2, "Cózar Martínez");

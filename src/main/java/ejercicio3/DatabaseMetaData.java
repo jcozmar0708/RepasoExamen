@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DatabaseMetaData {
     public static void main(String[] args) {
-        // DatabaseMetaData
+        // Obtener los metadatos de toda la base de datos
         try {
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/repaso", "root", "practica");
 

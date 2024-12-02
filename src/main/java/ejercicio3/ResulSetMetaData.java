@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class ResulSetMetaData {
     public static void main(String[] args) {
+        // Obtener los metadatos de un ResultSet
         try {
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/practica", "practica", "practica");
 

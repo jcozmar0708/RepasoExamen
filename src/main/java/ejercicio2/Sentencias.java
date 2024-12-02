@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Sentencias {
     public static void main(String[] args) {
+        // En este ejercicio sólo inserto una nueva orden con PreparedStatement (en este caso no es necesario poner el id_orden ya que se autoincrementa)
+
         String sql = "SELECT * FROM ordenes";
 
         try {
